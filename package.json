@@ -9,7 +9,7 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "typesVersions": {
-    "*" : {
+    "*": {
       "mux-player-next": [
         "dist/index.d.ts"
       ]
@@ -28,8 +28,12 @@
     "lint": "eslint src/*",
     "test": "npm run lint",
     "dev": "tsc --watch",
+    "dev:example": "cd example && yarn dev",
+    "dev:all": "yarn run-p dev dev:example",
     "build": "npm run build:cjs",
-    "build:cjs": "tsc"
+    "build:cjs": "tsc",
+    "build:example": "cd example && yarn build",
+    "build:all": "yarn run-s build build:example"
   },
   "author": "@muxinc",
   "license": "MIT",
@@ -47,6 +51,7 @@
     "@typescript-eslint/parser": "^5.33.1",
     "eslint": "8.22.0",
     "next": "12.2.5",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
