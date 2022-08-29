@@ -5,7 +5,7 @@ const getPoster = (
 ) =>
   playbackId
     ? placeholder
-      ? `https://image.mux.com/${playbackId}/thumbnail.jpg?width=16&time=${thumbnailTime}`
+      ? `https://image.mux.com/${playbackId}/thumbnail.jpg?width=32&time=${thumbnailTime}`
       : `https://image.mux.com/${playbackId}/thumbnail.jpg?time=${thumbnailTime}`
     : null;
 
