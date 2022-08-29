@@ -1,0 +1,55 @@
+[data-mux-player-react-suspense] {
+  aspect-ratio: 16/9;
+
+  background-color: #000;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  position: relative;
+}
+/* ensure the placeholder is the same size as the parent */
+[data-mux-player-react-suspense-placeholder] {
+  position: absolute;
+  inset: 0;
+}
+
+/* Center mux-player and the placeholder images vertically in their containers */
+[data-mux-player-react-suspense],
+[data-mux-player-react-suspense-placeholder] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[data-mux-player-react-suspense] mux-player,
+[data-mux-player-react-suspense-placeholder] img {
+  width: 100%;
+  height: auto;
+}
+
+/* Overlay loading indicator on placeholder */
+/* TODO: I don't love this. There's probably a more idiomatic media-chrome way to do it.*/
+[data-mux-player-react-suspense-placeholder] svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  fill: var(--media-icon-color, #fff);
+  z-index: 1;
+  animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+[data-mux-player-react-suspense-placeholder]:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--media-control-background, rgba(20, 20, 30, 0.7));
+}
