@@ -22,7 +22,7 @@ const MuxPlayerSuspense = ({
 
   // TODO: this loads on browser load. Could we do on intersection instead?
   return (
-    <div className={className} style={style} data-mux-player-react-suspense>
+    <div className={className} style={style} data-mux-player-lazy>
       <BrowserOnlySuspense fallback={<Placeholder poster={poster} />}>
         {/* 
           TODO: this still doesn't work the way I expect. 

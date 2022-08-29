@@ -1,4 +1,4 @@
-[data-mux-player-react-suspense] {
+[data-mux-player-lazy] {
   aspect-ratio: 16/9;
 
   background-color: #000;
@@ -10,27 +10,27 @@
   position: relative;
 }
 /* ensure the placeholder is the same size as the parent */
-[data-mux-player-react-suspense-placeholder] {
+[data-mux-player-lazy-placeholder] {
   position: absolute;
   inset: 0;
 }
 
 /* Center mux-player and the placeholder images vertically in their containers */
-[data-mux-player-react-suspense],
-[data-mux-player-react-suspense-placeholder] {
+[data-mux-player-lazy],
+[data-mux-player-lazy-placeholder] {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-[data-mux-player-react-suspense] mux-player,
-[data-mux-player-react-suspense-placeholder] img {
+[data-mux-player-lazy] mux-player,
+[data-mux-player-lazy-placeholder] img {
   width: 100%;
   height: auto;
 }
 
 /* Overlay loading indicator on placeholder */
 /* TODO: I don't love this. There's probably a more idiomatic media-chrome way to do it.*/
-[data-mux-player-react-suspense-placeholder] svg {
+[data-mux-player-lazy-placeholder] svg {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -48,7 +48,7 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-[data-mux-player-react-suspense-placeholder]:after {
+[data-mux-player-lazy-placeholder]:after {
   content: '';
   position: absolute;
   inset: 0;

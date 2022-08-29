@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 
-import MuxPlayer from '@mux/mux-player-react-suspense';
+import MuxPlayer from '@mux/mux-player-lazy-react';
 
 type Props = {
   playbackId: string;

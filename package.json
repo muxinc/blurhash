@@ -1,89 +1,32 @@
 {
   "private": true,
-  "name": "@mux/mux-player-react-suspense",
+  "name": "@mux/mux-player-lazy",
   "version": "0.1.0",
-  "description": "The best-loading player this side of the Mississippi",
-  "repository": "https://github.com/muxinc/mux-player-react-suspense.git",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "mux-player-react-suspense": [
-        "dist/index.d.ts"
-      ]
-    }
-  },
-  "sideEffects": [
-		"*.css"
-	],
-  "files": [
-    "src",
-    "dist"
-  ],
   "workspaces": [
-    "./",
-    "example/"
+    "packages/*",
+    "examples/*"
   ],
   "scripts": {
     "format": "prettier --write .",
-    "lint": "eslint src/*",
-    "test": "npm run lint",
-    "dev": "tsc --watch",
-    "dev:example": "cd example && yarn dev",
-    "dev:all": "yarn run-p dev dev:example",
-    "build": "npm run build:cjs",
-    "build:cjs": "tsc",
-    "build:example": "cd example && yarn build",
-    "build:all": "yarn run-s build build:example",
-    "start:example": "cd example && yarn start"
+    "dev:package:core": "cd packages/core && yarn dev",
+    "dev:package:react": "cd packages/react && yarn dev",
+    "dev:example:nextjs": "cd examples/nextjs && yarn dev",
+    "dev:react": "yarn run-p dev:package:core dev:package:react dev:example:nextjs",
+    "build:package:core": "cd packages/core && yarn build",
+    "build:package:react": "cd packages/react && yarn build",
+    "build:example:nextjs": "cd examples/nextjs && yarn build",
+    "build:react": "yarn run-p build:package:core build:package:react build:example:nextjs"
   },
   "author": "@muxinc",
   "license": "MIT",
-  "peerDependencies": {
-    "@types/react": "^17.0.0 || ^18",
-    "@types/react-dom": "^17.0.0 || ^18",
-    "react": "^17.0.2 || ^18",
-    "react-dom": "^17.0.2 || ^18"
-  },
   "devDependencies": {
-    "@mux/mux-player-react": "^0.1.0-beta.26",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "@typescript-eslint/parser": "^5.33.1",
-    "eslint": "8.22.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "2.7.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "typescript": "4.7.4"
+    "prettier": "2.7.1"
   },
   "prettier": {
     "tabWidth": 2,
     "singleQuote": true,
     "semi": true
-  },
-  "eslintConfig": {
-    "globals": {
-      "globalThis": "writable"
-    },
-    "env": {
-      "browser": true,
-      "es6": true,
-      "mocha": true,
-      "node": true
-    },
-    "parser": "@typescript-eslint/parser",
-    "extends": [
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 2022,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    }
   }
 }

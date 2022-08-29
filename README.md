@@ -3,15 +3,15 @@ The best-loading player this side of the Mississippi
 
 ### Installation
 ```bash
-npm install @mux/mux-player-react-suspense
+npm install @mux/mux-player-lazy
 # or
-yarn add @mux/mux-player-react-suspense
+yarn add @mux/mux-player-lazy
 ```
 ## Usage
 This package's usage should be _approximately_ equivalent to that of MuxPlayerReact. Please refer to the [Mux Player Documentation](https://docs.mux.com/guides/video/mux-player).
 ```jsx
-import MuxPlayer from "@mux/mux-player-react-suspense"
-import "@mux/mux-player-react-suspense/src/styles.css"
+import MuxPlayer from "@mux/mux-player-lazy"
+import "@mux/mux-player-lazy/src/styles.css"
 
 export default function App() {
   return (
@@ -37,7 +37,7 @@ Mux Player React Suspense should be compatible with any React styling solution t
 
 ```jsx
 import styled from 'styled-components'
-import MuxPlayer from '@mux/mux-player-react-suspense'
+import MuxPlayer from '@mux/mux-player-lazy'
 
 const StyledMuxPlayer = styled(MuxPlayer)`
   max-width: 500px;
@@ -47,7 +47,7 @@ const StyledMuxPlayer = styled(MuxPlayer)`
 ### CSS
 Use the following CSS to target the component:
 ```css
-[data-mux-player-react-suspense] {
+[data-mux-player-lazy] {
   max-width: 500px;
   aspect-ratio: 4/3;
 }
