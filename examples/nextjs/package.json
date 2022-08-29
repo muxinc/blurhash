@@ -1,5 +1,5 @@
 {
-  "name": "nextjs",
+  "name": "example-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mux/mux-player-lazy-react": "^0.1.0",
-    "@mux/mux-player-lazy-core": "^0.1.0",
+    "@mux/mux-placeholder": "^0.1.0",
+    "@mux/mux-player-react-lazy": "^0.1.0",
     "next": "12.2.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

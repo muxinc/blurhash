@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@mux/mux-player-lazy",
+  "name": "monorepo",
   "version": "0.1.0",
   "type": "module",
   "workspaces": [
@@ -9,20 +9,23 @@
   ],
   "scripts": {
     "format": "prettier --write .",
-    "dev:package:core": "cd packages/core && yarn dev",
+    "dev:package:placeholder": "cd packages/placeholder && yarn dev",
     "dev:package:react": "cd packages/react && yarn dev",
     "dev:example:nextjs": "cd examples/nextjs && yarn dev",
-    "dev:react": "yarn run-p dev:package:core dev:package:react dev:example:nextjs",
-    "build:package:core": "cd packages/core && yarn build",
+    "dev:react": "yarn run-p dev:package:placeholder dev:package:react dev:example:nextjs",
+    "build:package:placeholder": "cd packages/placeholder && yarn build",
     "build:package:react": "cd packages/react && yarn build",
     "build:example:nextjs": "cd examples/nextjs && yarn build",
-    "build:react": "yarn run-p build:package:core build:package:react build:example:nextjs"
+    "build:react": "yarn run-p build:package:placeholder build:package:react build:example:nextjs"
   },
   "author": "@muxinc",
   "license": "MIT",
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "prettier": "2.7.1"
+  },
+  "resolutions": {
+    "media-chrome": "0.10.0"
   },
   "prettier": {
     "tabWidth": 2,

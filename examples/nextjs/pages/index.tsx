@@ -1,40 +1,43 @@
 import { CSSProperties } from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 
-import MuxPlayer from '@mux/mux-player-lazy-react';
+import muxPlaceholder from '@mux/mux-placeholder';
+import MuxPlayer from '@mux/mux-player-react-lazy';
 
 type Props = {
   playbackId: string;
-  aspectRatio: CSSProperties['aspectRatio'];
+  blurHashBase64: string;
+  width: number;
+  height: number;
 };
-const Home: NextPage<Props> = ({ playbackId, aspectRatio }) => (
-  <>
-    <h1>
-      Mux Player React (<i>Suspense</i>)
-    </h1>
-    <p>The best-loading player this side of the Mississippi</p>
-    <MuxPlayer
-      streamType="on-demand"
-      playbackId={playbackId}
-      style={{
-        aspectRatio,
-        maxWidth: '568px',
-      }}
-    />
-  </>
+const Home: NextPage<Props> = ({
+  playbackId,
+  blurHashBase64,
+  width,
+  height,
+}: Props) => (
+  <MuxPlayer
+    streamType="on-demand"
+    playbackId={playbackId}
+    width={width}
+    height={height}
+    blurHashBase64={blurHashBase64}
+    style={{
+      maxWidth: '568px',
+    }}
+  />
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  // let's pretend we're calling a db here to get our playbackId and aspectRatio
   const playbackId = '3fevCt00ntwf7WxwvBhRo1EZ01IoABwo2d';
-  const aspectRatioMux = '630:377';
-
-  const aspectRatioCss = aspectRatioMux.replace(':', '/');
+  const { blurHashBase64, width, height } = await muxPlaceholder(playbackId);
 
   return {
     props: {
       playbackId,
-      aspectRatio: aspectRatioCss,
+      blurHashBase64,
+      width,
+      height,
     },
   };
 };

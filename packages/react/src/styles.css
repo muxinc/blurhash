@@ -1,36 +1,27 @@
 [data-mux-player-lazy] {
-  aspect-ratio: 16/9;
-
   background-color: #000;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   overflow: hidden;
-
   position: relative;
+  display: flex;
 }
-/* ensure the placeholder is the same size as the parent */
-[data-mux-player-lazy-placeholder] {
+
+/* Size the container with the image placeholder */
+[data-mux-player-lazy] img {
+  width: 100%;
+  height: auto;
+}
+/* Fill the container with the player */
+[data-mux-player-lazy] mux-player {
   position: absolute;
   inset: 0;
 }
 
-/* Center mux-player and the placeholder images vertically in their containers */
-[data-mux-player-lazy],
-[data-mux-player-lazy-placeholder] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-[data-mux-player-lazy] mux-player,
-[data-mux-player-lazy-placeholder] img {
-  width: 100%;
-  height: auto;
-}
-
 /* Overlay loading indicator on placeholder */
-/* TODO: I don't love this. There's probably a more idiomatic media-chrome way to do it.*/
-[data-mux-player-lazy-placeholder] svg {
+[data-mux-player-lazy-placeholder] {
+  position: absolute;
+  inset: 0;
+}
+[data-mux-player-lazy-loading] svg {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -48,9 +39,9 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-[data-mux-player-lazy-placeholder]:after {
+[data-mux-player-lazy-loading]:after {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--media-control-background, rgba(20, 20, 30, 0.7));
+  background: var(--media-control-background, rgba(20, 20, 30, 0.5));
 }

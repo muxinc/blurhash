@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@mux/mux-player-lazy-core",
+  "name": "@mux/mux-placeholder",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
@@ -20,6 +20,7 @@
   "author": "@muxinc",
   "license": "MIT",
   "devDependencies": {
+    "@types/sharp": "^0.30.5",
     "@typescript-eslint/parser": "^5.33.1",
     "eslint": "8.22.0",
     "typescript": "4.7.4"
@@ -45,5 +46,9 @@
         "jsx": true
       }
     }
+  },
+  "dependencies": {
+    "blurhash": "^1.1.5",
+    "sharp": "^0.30.7"
   }
 }
