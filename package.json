@@ -16,7 +16,7 @@
     "build:package:placeholder": "cd packages/placeholder && yarn build",
     "build:package:react": "cd packages/react && yarn build",
     "build:example:nextjs": "cd examples/nextjs && yarn build",
-    "build:react": "yarn run-p build:package:placeholder build:package:react build:example:nextjs"
+    "build:react": "yarn run-s build:package:placeholder build:package:react build:example:nextjs"
   },
   "author": "@muxinc",
   "license": "MIT",
