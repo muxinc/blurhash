@@ -4,5 +4,5 @@
 - [@mux/mux-player-svelte-lazy](./packages/svelte)
 
 ## Examples
-- [NextJS](./examples/nextjs) (https://mux-placeholder-react.vercel.app)
-- [SvelteKit](./examples/sveltekit) (https://mux-placeholder-svelte.vercel.app)
+- NextJS [Repo](./examples/nextjs) [Live Example](https://mux-placeholder-react.vercel.app)
+- SvelteKit [Repo](./examples/sveltekit) [Live Example](https://mux-placeholder-svelte.vercel.app)
