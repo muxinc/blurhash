@@ -20,7 +20,8 @@
     "build:example:nextjs": "cd examples/nextjs && yarn build",
     "build:react": "yarn run-s build:package:placeholder build:package:react build:example:nextjs",
     "build:package:svelte": "cd packages/svelte && yarn build",
-    "build:svelte": "yarn run-s build:package:placeholder build:package:svelte"
+    "build:example:sveltekit": "cd packages/svelte && yarn build:example",
+    "build:svelte": "yarn run-s build:package:placeholder build:package:svelte build:example:sveltekit"
   },
   "author": "@muxinc",
   "license": "MIT",
