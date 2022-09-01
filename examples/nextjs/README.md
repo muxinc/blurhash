@@ -6,7 +6,7 @@ This package's usage should be _approximately_ equivalent to that of MuxPlayerRe
 This package is intended to be used alongside `@mux/placeholder`. In this example, we use [Next.js](https://nextjs.org) to fetch the placeholder server-side with the `getServerSideProps` component.
 
 ```jsx
-import MuxPlayer from "@mux/mux-player-react-lazy"
+import MuxPlayer from "@mux/mux-**player**-react-lazy"
 import "@mux/mux-player-react-lazy/src/styles.css"
 
 export default function Page({ width, height, blurHashBase64 }) {

@@ -17,10 +17,6 @@
 }
 
 /* Overlay loading indicator on placeholder */
-[data-mux-player-lazy-placeholder] {
-  position: absolute;
-  inset: 0;
-}
 [data-mux-player-lazy-loading] svg {
   position: absolute;
   top: 50%;

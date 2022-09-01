@@ -13,19 +13,22 @@
     "dev:package:react": "cd packages/react && yarn dev",
     "dev:example:nextjs": "cd examples/nextjs && yarn dev",
     "dev:react": "yarn run-p dev:package:placeholder dev:package:react dev:example:nextjs",
+    "dev:package:svelte": "cd packages/svelte && yarn build --watch",
+    "dev:example:sveltekit": "cd examples/sveltekit && yarn dev",
+    "dev:svelte": "yarn run-p dev:package:placeholder dev:package:svelte dev:example:sveltekit",
     "build:package:placeholder": "cd packages/placeholder && yarn build",
     "build:package:react": "cd packages/react && yarn build",
     "build:example:nextjs": "cd examples/nextjs && yarn build",
-    "build:react": "yarn run-s build:package:placeholder build:package:react build:example:nextjs"
+    "build:react": "yarn run-s build:package:placeholder build:package:react build:example:nextjs",
+    "build:package:svelte": "cd packages/svelte && yarn build",
+    "build:example:sveltekit": "cd examples/sveltekit && yarn build",
+    "build:svelte": "yarn run-s build:package:placeholder build:package:svelte build:example:sveltekit"
   },
   "author": "@muxinc",
   "license": "MIT",
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "prettier": "2.7.1"
-  },
-  "resolutions": {
-    "media-chrome": "0.10.0"
   },
   "prettier": {
     "tabWidth": 2,
