@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
-  // import MuxPlayer from '@mux/mux-player-svelte-lazy';
-  import MuxPlayer from '$lib/index.svelte';
+  import MuxPlayer from '@mux/mux-player-svelte-lazy';
 
   export let data: PageData;
 </script>
