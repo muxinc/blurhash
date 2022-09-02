@@ -1,0 +1,1 @@
+See [SvelteKit Example](/examples/sveltekit) for usage
