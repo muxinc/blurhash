@@ -6,7 +6,7 @@ import Wrapper from './Wrapper';
 import LoadingOverlay from './LoadingOverlay';
 import BrowserOnlySuspense from './BrowserOnlySuspense';
 
-const MuxPlayer = React.lazy(() => import('./MuxPlayer'));
+const MuxPlayer = React.lazy(() => import('@mux/mux-player-react'));
 
 interface Props extends MuxPlayerProps {
   blurHashBase64: string;

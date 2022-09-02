@@ -109,10 +109,10 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@mux/mux-player-react@^0.1.0-beta.27":
-  version "0.1.0-beta.27"
-  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-0.1.0-beta.27.tgz#7fa0541003036704ffc066e43e35c9f21d531990"
-  integrity sha512-x+djGModhvSXCQDpMRfa+8Zkfj4R2yjo9s6285SaC+YpyTjrqmBlqNEoU9rr38mBB54qx5yUmSKqFuSDPOdm8Q==
+"@mux/mux-player-react@^0.1.0-beta.28":
+  version "0.1.0-beta.28"
+  resolved "https://registry.yarnpkg.com/@mux/mux-player-react/-/mux-player-react-0.1.0-beta.28.tgz#6b5043a8134baee089ea7bca42b4d080b9a5164b"
+  integrity sha512-MnakTnKbPziXfoafP2N+9IpZJwWrmQJb3Mv44d++QQYuEW3bjleX7DS+1rZQvCRa6US1L3KcdGvqZRtU02OadA==
   dependencies:
     "@mux/mux-player" "0.1.0-beta.27"
     "@mux/playback-core" "0.10.0"
