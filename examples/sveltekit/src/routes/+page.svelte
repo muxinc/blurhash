@@ -5,10 +5,18 @@
   export let data: PageData;
 </script>
 
-<MuxPlayer
-  blurHashBase64={data.blurHashBase64}
-  width={data.width}
-  height={data.height}
-  playback-id={data.playbackId}
-  stream-type="on-demand"
-/>
+<main>
+  <MuxPlayer
+    blurHashBase64={data.blurHashBase64}
+    width={data.width}
+    height={data.height}
+    playback-id={data.playbackId}
+    stream-type="on-demand"
+  />
+</main>
+
+<style>
+  main :global([data-mux-player-lazy]) {
+    max-width: 568px;
+  }
+</style>

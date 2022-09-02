@@ -43,7 +43,7 @@ export const load: PageServerLoad = async () => {
 ### CSS
 Use the following CSS to target the component:
 ```css
-[data-mux-player-react-lazy] {
+:global([data-mux-player-lazy]) {
   max-width: 500px;
 }
 ```

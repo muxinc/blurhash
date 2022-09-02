@@ -57,7 +57,7 @@ const StyledMuxPlayer = styled(MuxPlayer)`
 ### CSS
 Use the following CSS to target the component:
 ```css
-[data-mux-player-react-lazy] {
+[data-mux-player-lazy] {
   max-width: 500px;
 }
 ```
