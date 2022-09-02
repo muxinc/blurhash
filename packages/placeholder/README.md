@@ -1,6 +1,6 @@
 Using [woltapp/blurhash](https://github.com/woltapp/blurhash) to make nice placeholders for a Mux video. Works nicely with [Mux Player](https://docs.mux.com/guides/video/mux-player), especially with our lazy libraries:
 - [`@mux/mux-player-react-lazy`](../react/)
-- `@mux/mux-player-svelte-lazy` (_coming soon_)
+- [`@mux/mux-player-svelte-lazy`](../svelte/)
   
 
 ## API
