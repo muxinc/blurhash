@@ -17,7 +17,7 @@
 <div data-mux-player-lazy>
   <img src={blurHashBase64} {width} {height} alt="" />
   {#if isPlayerImported}
-    <mux-player {...$$props} />
+    <mux-player style:--media-background-color="transparent" {...$$props} />
   {:else}
     <LoadingOverlay />
   {/if}
