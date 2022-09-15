@@ -9,7 +9,7 @@ This package is intended to be used alongside `@mux/placeholder`. In this exampl
 import MuxPlayer from "@mux/mux-**player**-react-lazy"
 import "@mux/mux-player-react-lazy/src/styles.css"
 
-export default function Page({ width, height, blurHashBase64 }) {
+export default function Page({ width, height, blurHashBase64, playbackId }) {
   return (
     <MuxPlayer 
       /* Placeholder Attributes */
@@ -18,7 +18,7 @@ export default function Page({ width, height, blurHashBase64 }) {
       blurHashBase64={blurHashBase64}
       /* Standard MuxPlayer Attributes */
       streamType="on-demand"
-      playbackId="EcHgOK9coz5K4rjSwOkoE7Y7O01201YMIC200RI6lNxnhs"
+      playbackId={playbackId}
       metadata={{
         video_id: "video-id-54321",
         video_title: "Test video title",
