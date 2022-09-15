@@ -25,7 +25,7 @@ export const load: PageServerLoad = async () => {
 ```svelte
 <script lang="ts">
   import type { PageData } from './$types';
-  import MuxPlayer from '$lib/MuxPlayer.svelte';
+  import MuxPlayer from '@mux/mux-player-svelte-lazy';
 
   export let data: PageData;
 </script>
