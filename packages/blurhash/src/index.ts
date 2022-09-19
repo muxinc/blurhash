@@ -1,14 +1,14 @@
 import sharp from 'sharp';
 import { encode, decode } from 'blurhash';
 
-const bufferToBlurHash = async (buffer: Buffer) => {
+const bufferToBlurHash = async (buffer: Buffer, blurWidth: number, blurHeight: number) => {
   const image = sharp(buffer);
   const { width, height } = await image.metadata();
 
   const { data, info } = await image
     .raw()
     .ensureAlpha()
-    .resize(32, 32, { fit: 'inside' })
+    .resize(blurWidth, blurHeight, { fit: 'inside' })
     .toBuffer({ resolveWithObject: true });
 
   const blurHash = encode(
@@ -20,8 +20,8 @@ const bufferToBlurHash = async (buffer: Buffer) => {
   );
 
   return {
-    playerWidth: width,
-    playerHeight: height,
+    sourceWidth: width,
+    sourceHeight: height,
     blurWidth: info.width,
     blurHeight: info.height,
     blurHash,
@@ -54,7 +54,15 @@ const blurHashToBase64 = async (
   return `data:image/jpeg;base64,${resizedImageBuf.toString('base64')}`;
 };
 
-const muxPlaceholder = async (playbackId: string) => {
+export interface MuxBlurHashOptions { 
+  blurWidth?: number
+  blurHeight?: number
+}
+const defaultOptions = {
+  blurWidth: 32,
+  blurHeight: 32,
+} as const
+const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {}) => {
   const url = `https://image.mux.com/${playbackId}/thumbnail.jpg`;
   const response = await fetch(url);
 
@@ -63,11 +71,15 @@ const muxPlaceholder = async (playbackId: string) => {
   const buffer = Buffer.from(new Uint8Array(arrayBuffer));
 
   // we can use that buffer with sharp to get aspectRatio and blurHash with sharp!!
-  const { playerWidth, playerHeight, blurWidth, blurHeight, blurHash } =
-    await bufferToBlurHash(buffer);
+  const { sourceWidth, sourceHeight, blurWidth, blurHeight, blurHash } =
+    await bufferToBlurHash(
+      buffer,
+      options.blurWidth ?? defaultOptions.blurWidth,
+      options.blurHeight ?? defaultOptions.blurHeight
+    );
 
-  if (typeof playerWidth !== 'number' || typeof playerHeight !== 'number') {
-    throw new Error('Could not get player width and height');
+  if (typeof sourceWidth !== 'number' || typeof sourceHeight !== 'number') {
+    throw new Error('Could not get source width and height');
   }
 
   // and since it's easier to deal with, a base64 string as well...
@@ -77,6 +89,6 @@ const muxPlaceholder = async (playbackId: string) => {
     blurHeight
   );
 
-  return { blurHash, blurHashBase64, width: playerWidth, height: playerHeight };
+  return { blurHash, blurHashBase64, sourceWidth: sourceWidth, sourceHeight: sourceHeight };
 };
-export default muxPlaceholder;
+export default muxBlurHash;

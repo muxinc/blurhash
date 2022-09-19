@@ -1,45 +1,22 @@
-import { CSSProperties } from 'react';
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
+import Link from 'next/link'
 
-import muxPlaceholder from '@mux/mux-placeholder';
-import MuxPlayer from '@mux/mux-player-react-lazy';
-
-type Props = {
-  playbackId: string;
-  blurHashBase64: string;
-  width: number;
-  height: number;
-};
-const Home: NextPage<Props> = ({
-  playbackId,
-  blurHashBase64,
-  width,
-  height,
-}: Props) => (
-  <MuxPlayer
-    streamType="on-demand"
-    playbackId={playbackId}
-    width={width}
-    height={height}
-    blurHashBase64={blurHashBase64}
-    style={{
-      maxWidth: '568px',
-    }}
-  />
+const Home: NextPage = () => (
+  <>
+    <h1>@mux/blurhash + Next.js</h1>
+    <ul>
+      <li>
+        <Link href="/basic">
+          <a>Basic Usage</a>
+        </Link>
+      </li>
+      <li>
+        <Link href="/lazy">
+          <a>Lazy Loading</a>
+        </Link>
+      </li>
+    </ul>
+  </>
 );
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const playbackId = '3fevCt00ntwf7WxwvBhRo1EZ01IoABwo2d';
-  const { blurHashBase64, width, height } = await muxPlaceholder(playbackId);
-
-  return {
-    props: {
-      playbackId,
-      blurHashBase64,
-      width,
-      height,
-    },
-  };
-};
 
 export default Home;
