@@ -57,14 +57,33 @@ const blurHashToBase64 = async (
 export interface MuxBlurHashOptions { 
   blurWidth?: number
   blurHeight?: number
+  time?: number
+  token?: string
 }
 const defaultOptions = {
   blurWidth: 32,
   blurHeight: 32,
 } as const
 const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {}) => {
-  const url = `https://image.mux.com/${playbackId}/thumbnail.jpg`;
+  let url = `https://image.mux.com/${playbackId}/thumbnail.png`;
+
+  if (options.time || options.token) {
+    url += '?';
+    if (options.time) {
+      url += `&time=${options.time}`;
+    }
+    if (options.token) {
+      url += `&token=${options.token}`;
+    }
+  }
+
   const response = await fetch(url);
+
+  if (response.status === 403) {
+    throw new Error(`403: Forbidden. This Playback ID may require a token. See https://docs.mux.com/guides/video/secure-video-playback for more information.`);
+  } else if (response.status >= 400) {
+    throw new Error(`Error fetching thumbnail: ${response.status} ${response.statusText}`);
+  }
 
   // from our response we now need a Buffer
   const arrayBuffer = await response.arrayBuffer();
