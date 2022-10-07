@@ -1,5 +1,5 @@
 {
-	"name": "sveltekit",
+	"name": "mux-blurhash-example-sveltekit",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -11,8 +11,8 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@mux/mux-placeholder": "^0.1.0",
-		"@mux/mux-player-svelte-lazy": "^0.1.0",
+		"@mux/blurhash": ">=0.1.0",
+    "@mux/mux-player": ">=1.0.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
