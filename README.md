@@ -52,6 +52,7 @@ background-image: url({blurHashBase64});
 aspect-ratio: {sourceWidth}/{sourceHeight};
 ```
 
+### Using `blurHash` with JavaScript
 #### Canvas
 See documentation for [blurhash.decode](https://github.com/woltapp/blurhash/tree/master/TypeScript#decodeblurhash-string-width-number-height-number-punch-number--uint8clampedarray)
 
@@ -75,5 +76,5 @@ const { blurHash } = await muxBlurHash(playbackId, options);
 ```
 
 ## Examples
-- NextJS and mux-player-react [[Source Code](./examples/nextjs)] [[Live Example](https://mux-blurhash-react.vercel.app)]
-- SvelteKit and mux-player [[Source Code](./examples/sveltekit)] [[Live Example](https://mux-blurhash-svelte.vercel.app)]
+- NextJS and mux-player-react [[Basic Usage](./examples/nextjs/pages/basic.jsx)] [[Live Example](https://mux-blurhash-react.vercel.app)]
+- SvelteKit and mux-player [[Basic Usage](./examples/sveltekit/src/routes/basic)] [[Lazy Loading](./examples/sveltekit/src/routes/lazy)] [[Live Example](https://mux-blurhash-svelte.vercel.app)]
