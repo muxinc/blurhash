@@ -11,10 +11,10 @@ on:
         required: true
         description: Version
         options:
-        - conventional
-        - patch
-        - minor
-        - major
+          - conventional
+          - patch
+          - minor
+          - major
 
 jobs:
   deploy:
