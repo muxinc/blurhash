@@ -24,17 +24,36 @@ const { blurHash, blurHashBase64, sourceWidth, sourceHeight } = await muxBlurHas
 ```
 
 ### Using `blurHashBase64` with Mux Player
-- **mux-player element**: `<mux-player placeholder={blurHashBase64} />`
-- **mux-player-react and mux-player-react/lazy**: `<MuxPlayer placeholder={blurHashBase64} /> `
+#### mux-player element
+```html 
+<mux-player
+  placeholder={blurHashBase64}
+  style="aspect-ratio:{sourceWidth}/{sourceHeight}"
+></mux-player>
+````
+#### mux-player-react and mux-player-react/lazy
+```jsx
+<MuxPlayer
+  placeholder={blurHashBase64}
+  style={{ aspectRatio: sourceWidth / sourceHeight }}
+/>
+```
 
 See the [examples directory](./examples) to learn more
 
 ### Using `blurHashBase64` with native elements
-- **HTML**: `<img src={blurHashBase64}/>` 
-- **CSS**: `background-image: url({blurHashBase64})`
+#### HTML
+```html
+<img src={blurHashBase64} width={sourceWidth} height={sourceHeight}/>
+``` 
+#### CSS
+```css
+background-image: url({blurHashBase64});
+aspect-ratio: {sourceWidth}/{sourceHeight};
+```
 
-### Using `blurHash` in JavaScript
-- **Canvas**: See documentation for [blurhash.decode](https://github.com/woltapp/blurhash/tree/master/TypeScript#decodeblurhash-string-width-number-height-number-punch-number--uint8clampedarray)
+#### Canvas
+See documentation for [blurhash.decode](https://github.com/woltapp/blurhash/tree/master/TypeScript#decodeblurhash-string-width-number-height-number-punch-number--uint8clampedarray)
 
 ### Options
 `@mux/blurhash` will accept an optional second parameter that will allow configuration of the blurhash. 
