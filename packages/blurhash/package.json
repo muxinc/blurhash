@@ -6,10 +6,6 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "src",
-    "dist"
-  ],
   "scripts": {
     "lint": "eslint src/*",
     "test": "npm run lint",

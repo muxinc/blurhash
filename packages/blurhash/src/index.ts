@@ -1,7 +1,11 @@
 import sharp from 'sharp';
 import { encode, decode } from 'blurhash';
 
-const bufferToBlurHash = async (buffer: Buffer, blurWidth: number, blurHeight: number) => {
+const bufferToBlurHash = async (
+  buffer: Buffer,
+  blurWidth: number,
+  blurHeight: number
+) => {
   const image = sharp(buffer);
   const { width, height } = await image.metadata();
 
@@ -54,25 +58,31 @@ const blurHashToBase64 = async (
   return `data:image/jpeg;base64,${resizedImageBuf.toString('base64')}`;
 };
 
-export interface MuxBlurHashOptions { 
-  blurWidth?: number
-  blurHeight?: number
-  time?: number
-  token?: string
+export interface MuxBlurHashOptions {
+  blurWidth?: number;
+  blurHeight?: number;
+  time?: number;
+  token?: string;
 }
 const defaultOptions = {
   blurWidth: 32,
   blurHeight: 32,
-} as const
-const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {}) => {
+} as const;
+const muxBlurHash = async (
+  playbackId: string,
+  options: MuxBlurHashOptions = {}
+) => {
   let url = `https://image.mux.com/${playbackId}/thumbnail.png`;
 
-  if (options.time || options.token) {
+  if (
+    typeof options.time !== 'undefined' ||
+    typeof options.token !== 'undefined'
+  ) {
     url += '?';
-    if (options.time) {
+    if (typeof options.time !== 'undefined') {
       url += `&time=${options.time}`;
     }
-    if (options.token) {
+    if (typeof options.token !== 'undefined') {
       url += `&token=${options.token}`;
     }
   }
@@ -80,16 +90,20 @@ const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {})
   const response = await fetch(url);
 
   if (response.status === 403) {
-    throw new Error(`403: Forbidden. This Playback ID may require a token. See https://docs.mux.com/guides/video/secure-video-playback for more information.`);
+    throw new Error(
+      `[@mux/blurhash] Error fetching thumbnail. 403: Forbidden. This Playback ID may require a token. See https://docs.mux.com/guides/video/secure-video-playback for more information.`
+    );
   } else if (response.status >= 400) {
-    throw new Error(`Error fetching thumbnail: ${response.status} ${response.statusText}`);
+    throw new Error(
+      `[@mux/blurhash] Error fetching thumbnail. ${response.status}: ${response.statusText}`
+    );
   }
 
   // from our response we now need a Buffer
   const arrayBuffer = await response.arrayBuffer();
   const buffer = Buffer.from(new Uint8Array(arrayBuffer));
 
-  // we can use that buffer with sharp to get aspectRatio and blurHash with sharp!!
+  // we can use that buffer with sharp to get aspectRatio and blurHash with sharp!
   const { sourceWidth, sourceHeight, blurWidth, blurHeight, blurHash } =
     await bufferToBlurHash(
       buffer,
@@ -108,6 +122,11 @@ const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {})
     blurHeight
   );
 
-  return { blurHash, blurHashBase64, sourceWidth: sourceWidth, sourceHeight: sourceHeight };
+  return {
+    blurHash,
+    blurHashBase64,
+    sourceWidth,
+    sourceHeight,
+  };
 };
 export default muxBlurHash;
