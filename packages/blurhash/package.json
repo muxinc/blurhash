@@ -16,9 +16,9 @@
 		"publish-release": "../scripts/publish.sh"
 	},
 	"repository": {
-    "type": "git",
-    "url": "git+https://github.com/muxinc/blurhash.git"
-  },
+		"type": "git",
+		"url": "git+https://github.com/muxinc/blurhash.git"
+	},
 	"author": "@muxinc",
 	"license": "MIT",
 	"devDependencies": {
