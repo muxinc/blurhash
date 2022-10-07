@@ -1,5 +1,5 @@
 # @mux/blurhash
-Using [woltapp/blurhash](https://github.com/woltapp/blurhash) to make nice placeholders for a Mux video. Works nicely with [Mux Player](https://docs.mux.com/guides/video/mux-player).
+Using [woltapp/blurhash](https://github.com/woltapp/blurhash) to make nice placeholders for Mux videos. Works nicely with [Mux Player](https://docs.mux.com/guides/video/mux-player).
 
 
 ## Installation

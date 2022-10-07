@@ -13,3 +13,5 @@ export const load: PageServerLoad = async () => {
     playbackId,
   };
 };
+
+export const prerender = true;
