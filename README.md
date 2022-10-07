@@ -13,6 +13,10 @@ or
 yarn add @mux/blurhash
 ```
 
+## Examples
+- With NextJS and mux-player-react [[Basic Usage](./examples/nextjs/pages/basic.jsx)] [[Live Example](https://mux-blurhash-react.vercel.app)]
+- With SvelteKit and mux-player [[Basic Usage](./examples/sveltekit/src/routes/basic)] [[Lazy Loading](./examples/sveltekit/src/routes/lazy)] [[Live Example](https://mux-blurhash-svelte.vercel.app)]
+
 ## Usage
 Run `@mux/blurhash` server-side. `@mux/blurhash` will not work in the browser.
 
@@ -74,7 +78,3 @@ import muxBlurHash from '@mux/blurhash'
 const options = { blurWidth: 16, blurHeight: 16 }
 const { blurHash } = await muxBlurHash(playbackId, options);
 ```
-
-## Examples
-- NextJS and mux-player-react [[Basic Usage](./examples/nextjs/pages/basic.jsx)] [[Live Example](https://mux-blurhash-react.vercel.app)]
-- SvelteKit and mux-player [[Basic Usage](./examples/sveltekit/src/routes/basic)] [[Lazy Loading](./examples/sveltekit/src/routes/lazy)] [[Live Example](https://mux-blurhash-svelte.vercel.app)]
