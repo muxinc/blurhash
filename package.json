@@ -1,5 +1,4 @@
 {
-	"private": true,
 	"name": "@mux/blurhash",
 	"version": "0.1.0",
 	"type": "module",
