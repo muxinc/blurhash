@@ -4,7 +4,7 @@ concurrency: production
 
 defaults:
   run:
-    working-directory: packages/blurhash
+    working-directory: ./packages/blurhash
 
 on:
   # Allows you to run this workflow manually from the Actions tab

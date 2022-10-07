@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 defaults:
   run:
-    working-directory: packages/blurhash
+    working-directory: ./packages/blurhash
 
 jobs:
   build:
