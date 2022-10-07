@@ -2,6 +2,10 @@ name: CD
 
 concurrency: production
 
+defaults:
+  run:
+    working-directory: packages/blurhash
+
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -20,10 +24,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: production
-
-    defaults:
-      run:
-        working-directory: packages/blurhash
 
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
