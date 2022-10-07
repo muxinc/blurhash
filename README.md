@@ -62,7 +62,7 @@ See documentation for [blurhash.decode](https://github.com/woltapp/blurhash/tree
 |---|---|---|---|
 | blurWidth | number | The image will be compressed to this width before blurring. Lower values load faster but have less detail. | 32 |
 | blurHeight | number | The image will be compressed to this height before blurring. Lower values load faster but have less detail. | 32 |
-| time | number | The video timestamp from which to grab the blurhash | 0 |
+| time | number | The video timestamp from which to grab the blurhash. (If you're using a `thumbnailToken`, then the `time` option will have no effect; encode `time` in your token according to the secure video playback guide linked below) |  |
 | thumbnailToken | string | Videos with playback restrictions may require a thumbnail token. See https://docs.mux.com/guides/video/secure-video-playback for details | |
 
 #### For example...
