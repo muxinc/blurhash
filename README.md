@@ -1,5 +1,5 @@
 # @mux/blurhash
-A server-side package for node that uses [woltapp/blurhash](https://github.com/woltapp/blurhash) to make placeholders for Mux videos. Works nicely with [Mux Player](https://docs.mux.com/guides/video/mux-player).
+A server-side package for node that uses [woltapp/blurhash](https://github.com/woltapp/blurhash) and [sharp](https://www.npmjs.com/package/sharp) to make placeholders for Mux videos. Works nicely with [Mux Player](https://docs.mux.com/guides/video/mux-player).
 
 
 ## Installation
@@ -28,7 +28,7 @@ const { blurHash, blurHashBase64, sourceWidth, sourceHeight } = await muxBlurHas
 ```html 
 <mux-player
   placeholder={blurHashBase64}
-  style="aspect-ratio:{sourceWidth}/{sourceHeight}"
+  style="aspect-ratio: {sourceWidth}/{sourceHeight}"
 ></mux-player>
 ````
 #### mux-player-react and mux-player-react/lazy
