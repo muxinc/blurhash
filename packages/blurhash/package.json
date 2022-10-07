@@ -12,8 +12,13 @@
 		"test": "yarn lint",
 		"dev": "tsc --watch",
 		"build": "yarn run build:cjs",
-		"build:cjs": "tsc"
+		"build:cjs": "tsc",
+		"publish-release": "../scripts/publish.sh"
 	},
+	"repository": {
+    "type": "git",
+    "url": "git+https://github.com/muxinc/blurhash.git"
+  },
 	"author": "@muxinc",
 	"license": "MIT",
 	"devDependencies": {
