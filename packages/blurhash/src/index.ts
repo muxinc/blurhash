@@ -48,7 +48,7 @@ export interface MuxBlurHashOptions {
 	blurWidth?: number;
 	blurHeight?: number;
 	time?: number;
-	token?: string;
+	thumbnailToken?: string;
 }
 const defaultOptions = {
 	blurWidth: 32,
@@ -57,13 +57,13 @@ const defaultOptions = {
 const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {}) => {
 	let url = `https://image.mux.com/${playbackId}/thumbnail.png`;
 
-	if (typeof options.time !== 'undefined' || typeof options.token !== 'undefined') {
+	if (typeof options.time !== 'undefined' || typeof options.thumbnailToken !== 'undefined') {
 		url += '?';
 		if (typeof options.time !== 'undefined') {
 			url += `&time=${options.time}`;
 		}
-		if (typeof options.token !== 'undefined') {
-			url += `&token=${options.token}`;
+		if (typeof options.thumbnailToken !== 'undefined') {
+			url += `&token=${options.thumbnailToken}`;
 		}
 	}
 
@@ -71,7 +71,7 @@ const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {})
 
 	if (response.status === 403) {
 		throw new Error(
-			`[@mux/blurhash] Error fetching thumbnail. 403: Forbidden. This Playback ID may require a token. See https://docs.mux.com/guides/video/secure-video-playback for more information.`
+			`[@mux/blurhash] Error fetching thumbnail. 403: Forbidden. This Playback ID may require a thumbnail token. See https://docs.mux.com/guides/video/secure-video-playback for more information.`
 		);
 	} else if (response.status >= 400) {
 		throw new Error(

@@ -29,7 +29,7 @@ const { blurHash, blurHashBase64, sourceWidth, sourceHeight } = await muxBlurHas
 | blurWidth | number | The image will be compressed to this width before blurring | 32 |
 | blurHeight | number | The image will be compressed to this height before blurring | 32 |
 | time | number | The timestamp from which to grab the blurhash | 0 |
-| token | string | Videos with playback restrictions may require a token. See https://docs.mux.com/guides/video/secure-video-playback for details | |
+| thumbnailToken | string | Videos with playback restrictions may require a thumbnailToken. See https://docs.mux.com/guides/video/secure-video-playback for details | |
 
 #### For example...
 ```js
