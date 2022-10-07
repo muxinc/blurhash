@@ -12,7 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@mux/blurhash": "file:../../packages/blurhash",
+		"@mux/blurhash": "file:../../",
 		"@mux/mux-player": ">=1.1.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",

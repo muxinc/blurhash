@@ -2,10 +2,6 @@ name: CD
 
 concurrency: production
 
-defaults:
-  run:
-    working-directory: packages/blurhash
-
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,7 +36,6 @@ jobs:
           # this line is required for the setup-node action to be able to run the npm publish below.
           registry-url: 'https://registry.npmjs.org'
           cache: yarn
-          cache-dependency-path: packages/blurhash/yarn.lock
       - uses: fregante/setup-git-user@v1
       - run: yarn install --frozen-lockfile
       - run: yarn test

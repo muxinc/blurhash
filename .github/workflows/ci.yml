@@ -2,10 +2,6 @@ name: CI
 
 on: [push, pull_request]
 
-defaults:
-  run:
-    working-directory: packages/blurhash
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +13,6 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-          cache-dependency-path: packages/blurhash/yarn.lock
       - run: yarn install --frozen-lockfile
       - run: yarn build
 
@@ -30,6 +25,5 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-          cache-dependency-path: packages/blurhash/yarn.lock
       - run: yarn install --frozen-lockfile
       - run: yarn lint

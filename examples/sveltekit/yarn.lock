@@ -99,7 +99,7 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@mux/blurhash@file:../../packages/blurhash":
+"@mux/blurhash@file:../..":
   version "0.1.0"
   dependencies:
     blurhash "^1.1.5"

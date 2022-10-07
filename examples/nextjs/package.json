@@ -10,7 +10,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@mux/blurhash": "file:../../packages/blurhash",
+		"@mux/blurhash": "file:../../",
 		"@mux/mux-player-react": ">=1.1.0",
 		"next": "12.2.5",
 		"react": "^17.0.2",
