@@ -3,10 +3,12 @@ import muxBlurHash from '@mux/blurhash';
 
 const Basic = ({ playbackId, blurHashBase64, sourceWidth, sourceHeight }) => (
 	<MuxPlayer
-		streamType="on-demand"
-		playbackId={playbackId}
+		// @mux/blurhash props
 		placeholder={blurHashBase64}
 		style={{ aspectRatio: `${sourceWidth / sourceHeight}` }}
+		// standard props
+		streamType="on-demand"
+		playbackId={playbackId}
 		metadata={{
 			video_id: 'video-id-54321',
 			video_title: 'Test video title',

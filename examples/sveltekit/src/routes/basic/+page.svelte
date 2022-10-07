@@ -8,11 +8,11 @@
 
 <main>
 	<mux-player
-		stream-type="on-demand"
-		playback-id={data.playbackId}
-		placeholder={data.blurHashBase64}
-		style:aspect-ratio={data.sourceWidth / data.sourceHeight}
-		metadata-video-title="Test VOD"
-		metadata-viewer-user-id="user-id-007"
+	stream-type="on-demand"
+	playback-id={data.playbackId}
+	metadata-video-title="Test VOD"
+	metadata-viewer-user-id="user-id-007"
+	placeholder={data.blurHashBase64}
+	style:aspect-ratio={data.sourceWidth / data.sourceHeight}
 	/>
 </main>
