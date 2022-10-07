@@ -30,5 +30,6 @@ jobs:
         with:
           node-version: 16
           cache: yarn
+          cache-dependency-path: packages/blurhash/yarn.lock
       - run: yarn install --frozen-lockfile
       - run: yarn lint
