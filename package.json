@@ -1,34 +1,37 @@
 {
-  "private": true,
-  "name": "monorepo",
-  "version": "0.1.0",
-  "type": "module",
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ],
-  "scripts": {
-    "format": "prettier --write .",
-    "dev:package:blurhash": "cd packages/blurhash && yarn dev",
-    "dev:example:nextjs": "cd examples/nextjs && yarn dev",
-    "dev:react": "yarn run-p dev:package:blurhash dev:example:nextjs",
-    "dev:example:sveltekit": "cd examples/sveltekit && yarn dev",
-    "dev:svelte": "yarn run-p dev:package:blurhash dev:example:sveltekit",
-    "build:package:blurhash": "cd packages/blurhash && yarn build",
-    "build:example:nextjs": "cd examples/nextjs && yarn build",
-    "build:react": "yarn run-s build:package:blurhash build:example:nextjs",
-    "build:example:sveltekit": "cd examples/sveltekit && yarn build",
-    "build:svelte": "yarn run-s build:package:blurhash build:example:sveltekit"
-  },
-  "author": "@muxinc",
-  "license": "MIT",
-  "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "prettier": "2.7.1"
-  },
-  "prettier": {
-    "tabWidth": 2,
-    "singleQuote": true,
-    "semi": true
-  }
+	"private": true,
+	"name": "@mux/blurhash",
+	"version": "0.1.0",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"test": "yarn lint",
+		"dev": "tsc --watch",
+		"build": "yarn run build:cjs",
+		"build:cjs": "tsc",
+		"publish-release": "../scripts/publish.sh"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/muxinc/blurhash.git"
+	},
+	"author": "@muxinc",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/sharp": "^0.30.5",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"eslint": "8.22.0",
+		"eslint-config-prettier": "^8.3.0",
+		"prettier": "^2.6.2",
+		"typescript": "4.7.4"
+	},
+	"dependencies": {
+		"blurhash": "^1.1.5",
+		"sharp": "^0.30.7"
+	}
 }

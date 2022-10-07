@@ -1,18 +1,18 @@
 <script lang="ts">
-  import '@mux/mux-player';
+	import '@mux/mux-player';
 
-  import type { PageData } from './$types';
+	import type { PageData } from './$types';
 
-  export let data: PageData;
+	export let data: PageData;
 </script>
 
 <main>
-  <mux-player
-    stream-type="on-demand"
-    playback-id={data.playbackId}
-    placeholder={data.blurHashBase64}
-    style:aspect-ratio={data.sourceWidth / data.sourceHeight}
-    metadata-video-title="Test VOD"
-    metadata-viewer-user-id="user-id-007"
-  />
+	<mux-player
+	stream-type="on-demand"
+	playback-id={data.playbackId}
+	metadata-video-title="Test VOD"
+	metadata-viewer-user-id="user-id-007"
+	placeholder={data.blurHashBase64}
+	style:aspect-ratio={data.sourceWidth / data.sourceHeight}
+	/>
 </main>
