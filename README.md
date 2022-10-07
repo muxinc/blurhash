@@ -52,6 +52,7 @@ background-image: url({blurHashBase64});
 aspect-ratio: {sourceWidth}/{sourceHeight};
 ```
 
+### Using `blurHash` with JavaScript
 #### Canvas
 See documentation for [blurhash.decode](https://github.com/woltapp/blurhash/tree/master/TypeScript#decodeblurhash-string-width-number-height-number-punch-number--uint8clampedarray)
 
