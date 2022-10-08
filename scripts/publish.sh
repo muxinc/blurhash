@@ -49,9 +49,21 @@ function release {
 
 function canary {
   # get last published version from NPM without alpha / beta, remove -SHA hash
+
+  # debug jq command at https://jqplay.org/s/Wwjv5hVUCL0
+  #
+  #   1. remove alpha or beta versions
+  #   2 & 3. convert to { version: 'x.x.x', dist: 'canary', build: x }
+  #   4. sort first by `version` then by `build` number
+  #   5. put back together to a string `x.x.x-canary.x`
+  #   6. pick the last item in the array
   LAST_VERSION=$(npm view $(npm pkg get name | sed 's/"//g') versions --json |
-    jq -r '. - map(select(contains("alpha") or contains("beta"))) | last' |
-    sed -r 's/-[a-z0-9]{7}$//g')
+    jq -r 'if type=="string" then [.] else . end | . - map(select(contains("alpha") or contains("beta")))
+      | map(capture("(?<version>\\d+\\.\\d+\\.\\d+)(-(?<dist>[a-z]+))?(\\.(?<build>\\d+))?"))
+      | map(.build? |= (. // 0 | tonumber))
+      | sort_by(.version, .build)
+      | map(.version + "-" + (.dist // "latest") + "." + (.build|tostring))
+      | last')
   PRE_VERSION=$(npx semver $LAST_VERSION -i prerelease --preid canary)
   VERSION=$PRE_VERSION-$(git rev-parse --short HEAD)
   npm --no-git-tag-version version $VERSION
