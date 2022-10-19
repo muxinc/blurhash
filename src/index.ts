@@ -55,9 +55,15 @@ const defaultOptions = {
 	blurHeight: 32
 } as const;
 const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {}) => {
+	if (typeof playbackId !== 'string') {
+		throw new TypeError(`[@mux/blurhash] playbackId error. Expected a string, got ${typeof playbackId}`);
+	}
 	let url = `https://image.mux.com/${playbackId}/thumbnail.png`;
 
 	if (typeof options.time !== 'undefined' || typeof options.thumbnailToken !== 'undefined') {
+		if (typeof options.time !== 'undefined' && typeof options.thumbnailToken !== 'undefined') {
+			console.warn('[@mux/blurhash] When thumbnailToken is set, time will have no effect. Encode time in your token. See https://docs.mux.com/guides/video/secure-video-playback for more information.');
+		}
 		url += '?';
 		if (typeof options.time !== 'undefined') {
 			url += `&time=${options.time}`;
