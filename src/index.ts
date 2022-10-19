@@ -76,9 +76,15 @@ const muxBlurHash = async (playbackId: string, options: MuxBlurHashOptions = {})
 	const response = await fetch(url);
 
 	if (response.status === 403) {
-		throw new Error(
-			`[@mux/blurhash] Error fetching thumbnail. 403: Forbidden. This Playback ID may require a thumbnail token. See https://docs.mux.com/guides/video/secure-video-playback for more information.`
-		);
+		if (typeof options.thumbnailToken !== 'undefined') {
+			throw new Error(
+				`[@mux/blurhash] Error fetching thumbnail. 403: Forbidden. The thumbnailToken option may be invalid. See https://docs.mux.com/guides/video/secure-video-playback for more information.`
+			);
+		} else {
+			throw new Error(
+				`[@mux/blurhash] Error fetching thumbnail. 403: Forbidden. This Playback ID may require a thumbnail token. See https://docs.mux.com/guides/video/secure-video-playback for more information.`
+			);
+		}
 	} else if (response.status >= 400) {
 		throw new Error(
 			`[@mux/blurhash] Error fetching thumbnail. ${response.status}: ${response.statusText}`
