@@ -5,6 +5,9 @@
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"bin": {
+		"mux-blurhash": "dist/cli.js"
+	},
 	"scripts": {
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
@@ -30,7 +33,9 @@
 		"typescript": "4.7.4"
 	},
 	"dependencies": {
+		"arg": "^5.0.2",
 		"blurhash": "^1.1.5",
+		"node-fetch": "^3.3.0",
 		"sharp": "^0.30.7"
 	}
 }
