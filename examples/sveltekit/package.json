@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {
 		"@mux/blurhash": "file:../../",
-		"@mux/mux-player": "^1.2.0",
+		"@mux/mux-player": "^2.2.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
