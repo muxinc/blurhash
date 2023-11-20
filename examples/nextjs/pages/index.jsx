@@ -9,6 +9,11 @@ const Home = () => (
 					<a>Basic Usage</a>
 				</Link>
 			</li>
+			<li>
+				<Link href="/lazy">
+					<a>Lazy Loading</a>
+				</Link>
+			</li>
 		</ul>
 	</>
 );

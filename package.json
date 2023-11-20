@@ -31,6 +31,6 @@
 	},
 	"dependencies": {
 		"blurhash": "^1.1.5",
-		"sharp": "^0.30.7"
+		"sharp": "^0.32.6"
 	}
 }
